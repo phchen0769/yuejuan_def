@@ -21,6 +21,7 @@ from django.views.static import serve
 from . import settings
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,

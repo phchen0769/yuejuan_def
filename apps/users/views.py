@@ -108,7 +108,7 @@ class UserViewSet(viewsets.ModelViewSet):
         re_dict = serializer.data
         refresh = TokenObtainPairView.as_view()(request._request).data
         re_dict["token"] = refresh["access"]
-        re_dict["name"] = user.name if user.name else user.username
+        re_dict["name"] = user.user if user.user else user.username
 
         headers = self.get_success_headers(serializer.data)
         return Response(re_dict, status=status.HTTP_201_CREATED, headers=headers)

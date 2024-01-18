@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.papers",
     "corsheaders",
-    "rest_framework_simplejwt",
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -92,11 +92,11 @@ WSGI_APPLICATION = "yuejuan_drf.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",  # 使用mysql数据库
-        "NAME": "yuejuan_drf",  # 要连接的数据库
+        "NAME": "yuejuan",  # 要连接的数据库
         "USER": "root",  # 链接数据库的用于名
         "PASSWORD": "123456",  # 链接数据库的用于名
         # "HOST": "10.165.27.150",  # mysql服务监听的ip
-        "HOST": "192.168.12.6",
+        "HOST": "192.168.12.9",
         "PORT": 3306,  # mysql服务监听的端口
         "ATOMIC_REQUEST": True,  # 设置为True代表同一个http请求所对应的所有sql都放在一个事务中执行
         # (要么所有都成功，要么所有都失败)，这是全局性的配置，如果要对某个
@@ -169,22 +169,19 @@ AUTH_USER_MODEL = "users.UserProfile"
 
 # 通过中间件解决跨域问题
 CORS_ALLOWED_ORIGINS = [
-    "http://192.168.12.6",
-    "http://192.168.12.6:9527",  # 允许的前端域
+    "http://10.165.27.150",
+    "http://10.165.27.150:9527",  # 允许的前端域
 ]
 
 # 配置restframework 的验证类
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        # 使用rest_framework_simplejwt验证身份
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated"  # 默认权限为验证用户
-    ],
 }
+
 
 # simple JWT配置
 SIMPLE_JWT = {
