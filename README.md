@@ -9,10 +9,12 @@
 # 注意：容器完成后，需要把.devcontainer/cache.py替换/usr/lib/python3.10/site-packages/django/views/decorators/cache.py文件,用以支持xadmin
 # 测试适用环境python3.10，django4.1
 
-
-# 运行
 # 运行数据库
+#### ARM
 # docker run -d --name Mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /Volumes/Extreme\ SSD/github/db:/var/lib/mysql mariadb:latest
 
+# Intel
+# docker run -d --name Mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /Volumes/myOS/Users/fedorov/Documents/GitHub/db:/var/lib/mysql mariadb:latest
+
 # 运行项目
-# python manage.py runserver
+# python manage.py runserver 

@@ -17,3 +17,4 @@ Djangorestframework
 mysqlclient
 django-cors-headers
 djangorestframework-simplejwt
+django-simple-captcha

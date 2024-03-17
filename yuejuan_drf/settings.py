@@ -95,8 +95,8 @@ DATABASES = {
         "NAME": "yuejuan_drf",  # 要连接的数据库
         "USER": "root",  # 链接数据库的用于名
         "PASSWORD": "123456",  # 链接数据库的用于名
-        # "HOST": "10.165.27.150",  # mysql服务监听的ip
-        "HOST": "192.168.12.6",
+        "HOST": "10.165.27.210",  # mysql服务监听的ip
+        # "HOST": "192.168.12.9",
         "PORT": 3306,  # mysql服务监听的端口
         "ATOMIC_REQUEST": True,  # 设置为True代表同一个http请求所对应的所有sql都放在一个事务中执行
         # (要么所有都成功，要么所有都失败)，这是全局性的配置，如果要对某个
@@ -169,9 +169,17 @@ AUTH_USER_MODEL = "users.UserProfile"
 
 # 通过中间件解决跨域问题
 CORS_ALLOWED_ORIGINS = [
-    "http://192.168.12.6",
-    "http://192.168.12.6:9527",  # 允许的前端域
+    "http://10.165.27.210",
+    "http://10.165.27.210:9527",  # 允许的前端域
 ]
+
+# 解决跨域访问问题
+CORS_ORIGIN_WHITELIST = [
+    "http://10.165.27.210:9527",
+]
+
+# 如果你想允许所有来源，则可以使用
+CORS_ALLOW_ALL_ORIGINS = True
 
 # 配置restframework 的验证类
 REST_FRAMEWORK = {
@@ -195,4 +203,7 @@ SIMPLE_JWT = {
 # 手机验证的正则表达式
 REGEX_MOBILE = r"^1[3456789]\d{9}$"
 
-APIKEY = "123123"
+APIKEY = "73966ba57a4453fadcce63a230dc4150"
+
+# url结尾默认不加/
+# APPEND_SLASH = False

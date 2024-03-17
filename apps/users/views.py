@@ -52,7 +52,7 @@ class SmsCodeViewset(CreateModelMixin, viewsets.GenericViewSet):
         """
         seeds = "1234567890"
         random_str = []
-        for i in range(4):
+        for i in range(6):
             random_str.append(choice(seeds))
 
         return "".join(random_str)
